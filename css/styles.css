@@ -72,12 +72,19 @@ img { display: block; max-width: 100%; }
 /* ===== Cabecera (cristal) ===== */
 .app-header {
   position: absolute; top: 0; left: 0; right: 0; z-index: 6;
-  padding: calc(10px + var(--safe-t)) 18px 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: calc(10px + var(--safe-t)) 16px 10px;
   background: var(--glass);
   -webkit-backdrop-filter: blur(22px) saturate(170%);
   backdrop-filter: blur(22px) saturate(170%);
   border-bottom: 1px solid var(--glass-brd);
 }
+.theme-toggle {
+  flex: none; width: 42px; height: 42px; border-radius: 13px; border: 1.5px solid var(--line);
+  background: var(--surface); font-size: 19px; display: grid; place-items: center;
+  box-shadow: var(--shadow-card); transition: transform 0.12s ease, background 0.2s ease;
+}
+.theme-toggle:active { transform: scale(0.9); }
 .app-header__brand { display: flex; align-items: center; gap: 12px; }
 .app-header__logo {
   font-size: 22px; width: 42px; height: 42px; display: grid; place-items: center;
@@ -331,3 +338,45 @@ select.field { appearance: none; }
 
 @media (min-width: 481px) { html, body { height: 100vh; } }
 @media (prefers-reduced-motion: reduce) { .aurora::before, .aurora::after { animation: none; } .view > * { animation: none; } }
+
+/* ===== 🌙 Tema oscuro ===== */
+:root { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --violet: #9d8cff;
+  --violet-d: #b6a7ff;
+  --magenta: #c56ad6;
+  --pink: #ff6fb5;
+  --peach: #f6b06e;
+  --ink: #f2ecff;
+  --ink-2: #cec4e8;
+  --muted: #9a90b6;
+  --bg: #131020;
+  --surface: #1e1830;
+  --surface-2: #29223e;
+  --line: #352c4e;
+  --danger: #ff5c82;
+  --ok: #3fcf9a;
+  --grad-soft: linear-gradient(135deg, #2b2145 0%, #3a2340 100%);
+  --glass: rgba(23, 18, 37, 0.62);
+  --glass-brd: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --glow: 0 12px 28px rgba(157, 108, 255, 0.42);
+}
+:root[data-theme="dark"] html { background: #0c0913; }
+:root[data-theme="dark"] .checker { --c1: #241d38; --c2: #2c2442; }
+:root[data-theme="dark"] .stage {
+  background: radial-gradient(120% 90% at 50% 0%, #2a1f42 0%, #201a35 55%, #171226 100%);
+  box-shadow: var(--shadow-soft), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+:root[data-theme="dark"] .btn--soft { background: #2c2442; color: var(--violet-d); }
+:root[data-theme="dark"] .btn--danger-ghost { background: #3a1f2b; color: #ff9bb0; }
+:root[data-theme="dark"] .pill--ok { background: #123528; color: #5fd6a5; }
+:root[data-theme="dark"] .pill--warn { background: #392b12; color: #e7b45e; }
+:root[data-theme="dark"] .toast { background: rgba(12, 9, 20, 0.9); }
+:root[data-theme="dark"] .aurora::before { opacity: 0.3; }
+:root[data-theme="dark"] .aurora::after { opacity: 0.3; }
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  :root[data-theme="dark"] .app-header, :root[data-theme="dark"] .tabbar { background: rgba(19, 16, 32, 0.97); }
+}

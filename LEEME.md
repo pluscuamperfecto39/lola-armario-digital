@@ -6,6 +6,8 @@ Una app instalable (PWA) que funciona como un **armario digital**:
 - **Añadir con foto**: haces una foto con el móvil a la prenda y la app **recorta el fondo automáticamente** y la guarda en el apartado que elijas.
 - **Probador 🧍‍♀️**: eliges prendas del armario y las combinas sobre un **maniquí** (mujer delgada, pelo largo castaño) para ver cómo quedaría el conjunto. Puedes mover, redimensionar y apilar cada prenda, y **guardar el look** como imagen.
 
+- **Modo oscuro** 🌙: botón en la cabecera para alternar claro/oscuro (por defecto sigue el tema de tu móvil y recuerda tu elección).
+
 Todo funciona **en el propio dispositivo**: tus fotos se guardan solo en tu teléfono (en el almacenamiento del navegador) y **no se suben a ningún servidor**.
 
 ---

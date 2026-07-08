@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <script>
+    // Aplica el tema antes de pintar (evita parpadeo)
+    (function () {
+      try {
+        var p = localStorage.getItem('lola-theme') || 'auto';
+        var dark = p === 'dark' || (p === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (e) {}
+    })();
+  </script>
   <title>LOLA — Armario digital</title>
   <meta name="description" content="Tu armario digital: fotografía tu ropa, recorta el fondo y combínala en el probador." />
   <meta name="theme-color" content="#7c6cf0" />
@@ -27,6 +37,7 @@
         <p class="app-header__tag">Tu armario digital</p>
       </div>
     </div>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
   </header>
 
   <main id="view" class="view"><!-- las vistas se renderizan aquí --></main>
