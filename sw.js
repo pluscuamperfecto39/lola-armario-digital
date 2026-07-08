@@ -1,5 +1,5 @@
 // Service Worker de LOLA — funcionamiento offline
-const CACHE = 'lola-v2';
+const CACHE = 'lola-v3';
 const CORE = [
   './',
   './index.html',

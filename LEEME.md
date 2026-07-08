@@ -58,7 +58,7 @@ Sube la carpeta a un repositorio y actívalo en *Settings → Pages*. Te dará u
 
 - Coloca la prenda sobre un **fondo liso** (una cama, una pared, el suelo) y con **buena luz**.
 - Que la prenda **ocupe casi toda la foto** y contraste con el fondo.
-- **La primera vez** que recortas, la app descarga el modelo de recorte (~40 MB). Necesita **internet solo esa primera vez**; luego queda guardado y funciona sin conexión.
+- El recorte usa el modelo de IA **RMBG-1.4** (BRIA) ejecutándose en tu navegador. **La primera vez** descarga el modelo (~44 MB): necesita **internet solo esa primera vez**; luego queda guardado y funciona sin conexión. Cada recorte tarda unos segundos.
 
 ---
 
@@ -68,7 +68,7 @@ Sube la carpeta a un repositorio y actívalo en *Settings → Pages*. Te dará u
 En el navegador del dispositivo (IndexedDB). Si borras los datos del navegador o desinstalas, se pierden.
 
 **El recorte no funciona / sale sin recortar.**
-Suele ser falta de internet la primera vez (para descargar el modelo). La app te deja **guardar la foto igualmente** aunque no se recorte. Si el problema persiste, puedes cambiar la versión de la librería en `js/bgremove.js` (constante `IMGLY_VERSION`).
+Suele ser falta de internet la primera vez (para descargar el modelo RMBG-1.4). La app te deja **guardar la foto igualmente** aunque no se recorte. El motor de recorte está en `js/bgremove.js` (modelo `briaai/RMBG-1.4` vía Transformers.js).
 
 **¿Puedo cambiar el maniquí?**
 Sí: sustituye `assets/mannequin.svg` (mantén el mismo `viewBox="0 0 360 820"` para que las prendas encajen).
